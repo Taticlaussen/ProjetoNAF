@@ -1,0 +1,70 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Estudante</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Estudante</h1>
+
+        <form onsubmit="return validateForm()">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="matricula">Matrícula:</label>
+            <input type="number" id="matricula" name="matricula" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="tipoUsuario">Tipo de Usuário:</label>
+            <select id="tipoUsuario" name="tipoUsuario" required>
+                <option value="aluno">Aluno</option>
+                <option value="professor">Professor</option>
+            </select>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" pattern="^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$" required>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <p id="errorMessage" style="color: red; margin-top: 10px;"></p>
+    </div>
+
+    <script>
+        function validateForm() {
+            var nome = document.getElementById('nome').value;
+            var matricula = document.getElementById('matricula').value;
+            var senha = document.getElementById('senha').value;
+
+            // Validar se o nome contém apenas letras
+            if (!/^[A-Za-z ]+$/.test(nome)) {
+                document.getElementById('errorMessage').innerHTML = "* Corrija o nome para conter apenas letras.";
+                return false;
+            }
+
+            // Validar se a matrícula possui 10 dígitos
+            if (matricula.length !== 10) {
+                document.getElementById('errorMessage').innerHTML = "* Corrija a matrícula para conter exatamente 10 dígitos.";
+                return false;
+            }
+
+            // Validar se a senha contém pelo menos uma letra e um número
+            if (!/(?=.*[a-zA-Z])(?=.*\d)/.test(senha)) {
+                document.getElementById('errorMessage').innerHTML = "* A senha deve conter pelo menos uma letra e um número.";
+                return false;
+            }
+
+            // Limpar mensagem de erro se tudo estiver correto
+            document.getElementById('errorMessage').innerHTML = "";
+
+            return true;
+        }
+    </script>
+</body>
+</html>
+
+
+

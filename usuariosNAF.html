@@ -1,0 +1,124 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários NAF</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .agenda {
+            margin-top: 20px;
+        }
+
+        .calendario {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .dia {
+            position: relative;
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .cliente-confirmado {
+            background-color: #8eff8e; /* Verde para confirmado */
+        }
+
+        .cliente-pendente {
+            background-color: #ff8e8e; /* Vermelho para pendente */
+        }
+
+        .cliente-tooltip {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 5px;
+            display: none;
+        }
+
+        .dia:hover .cliente-tooltip {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Agenda do Dia</h1>
+
+        <div class="agenda" id="agendaDoDia">
+            <h2>Agenda do Dia</h2>
+            <!-- Calendário será preenchido dinamicamente pelo JavaScript -->
+            <div class="calendario" id="calendario"></div>
+        </div>
+
+        <div class="opcoes">
+            <h2>Opções de Agenda</h2>
+            <ul>
+                <li><a href="#">Ver Agenda com Nomes</a></li>
+                <li><a href="#">Ver Agenda Passada</a></li>
+                <li><a href="#">Ver Agenda Futura</a></li>
+            </ul>
+        </div>
+
+        <a href="logout.html">Sair</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Simulando dados dinâmicos (pode ser substituído com dados reais do seu sistema)
+            var dadosAgenda = [
+                { data: "2023-11-27", clientes: [{ nome: "Cliente 1", status: "Confirmado" }, { nome: "Cliente 2", status: "Pendente" }] },
+                // Adicionar mais dados conforme necessário
+            ];
+
+            var calendario = document.getElementById('calendario');
+
+            // Preencher o calendário dinamicamente
+            dadosAgenda.forEach(function(item) {
+                var dia = document.createElement('div');
+                dia.classList.add('dia');
+                dia.textContent = new Date(item.data).getDate(); // Apenas o dia, você pode personalizar conforme necessário
+
+                // Adicionar clientes ao dia
+                item.clientes.forEach(function(cliente) {
+                    var clienteDiv = document.createElement('div');
+                    clienteDiv.textContent = cliente.nome;
+
+                    // Adicionar classe conforme o status do cliente
+                    if (cliente.status === 'Confirmado') {
+                        clienteDiv.classList.add('cliente-confirmado');
+                    } else if (cliente.status === 'Pendente') {
+                        clienteDiv.classList.add('cliente-pendente');
+                    }
+
+                    // Adicionar tooltip de status
+                    var tooltip = document.createElement('div');
+                    tooltip.classList.add('cliente-tooltip');
+                    tooltip.textContent = cliente.status;
+
+                    clienteDiv.appendChild(tooltip);
+                    dia.appendChild(clienteDiv);
+                });
+
+                // Adicionar evento de clique para interação
+                dia.addEventListener('click', function() {
+                    alert('Cliquei no dia ' + new Date(item.data).toLocaleDateString());
+                    // Adicione aqui a lógica para abrir a agenda detalhada ou outras ações
+                });
+
+                calendario.appendChild(dia);
+            });
+        });
+    </script>
+</body>
+</html>

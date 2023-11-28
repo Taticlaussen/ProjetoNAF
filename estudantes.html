@@ -1,0 +1,47 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudantes NAF</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Área do Estudante NAF</h1>
+
+        <div id="loginForm">
+            <h2>Login</h2>
+            <form onsubmit="return login()">
+                <label for="matricula">Matrícula:</label>
+                <input type="number" id="matricula" name="matricula" required>
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+
+                <button type="submit">Entrar</button>
+            </form>
+
+            <p id="loginError" style="color: red; margin-top: 10px;"></p>
+            <p>Não tem uma conta? <a href="cadastroEstudante.html">Crie uma agora</a>.</p>
+            <p><a href="recuperarSenha.html">Esqueceu a senha?</a></p>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var matricula = document.getElementById('matricula').value;
+            var senha = document.getElementById('senha').value;
+
+            // Aqui você deve adicionar lógica para verificar as credenciais no backend.
+            // Simulei uma verificação simples comparando matrícula e senha como exemplo.
+            if (matricula === '1234567890' && senha === 'Senha123') {
+                document.getElementById('loginError').innerHTML = "";
+                // Redirecionar para a página da agenda ou outra página desejada
+                window.location.href = "agendaEstudante.html";
+            } else {
+                document.getElementById('loginError').innerHTML = "Matrícula ou senha incorretos.";
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
