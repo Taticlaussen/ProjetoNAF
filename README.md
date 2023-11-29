@@ -19,6 +19,7 @@ Consideramos suas necessidades e expectativas para garantir que nossa solução 
 ## Integrantes da Equipe do Projeto
 
 - Ana Maria de Alcantra dos Santos
+- Ricardo Felipe Santos Santiago
 - Tatiana Claussen Correa Beigelman
 
 ## Objetivo do Projeto
@@ -45,6 +46,7 @@ https://github.com/Taticlaussen/ProjetoNAF.git
 Para qualquer dúvida ou sugestão, entre em contato com os membros da equipe:
 
 - Ana Maria de Alcantra dos Santos - ana_alcantara91@icloud.com
+- Ricardo Felipe Santos Santiago - ricardo.sntg@gmail.com
 - Tatiana Claussen Correa Beigelman - taticlaussen@yahoo.com.br
 
 Agradecemos por contribuir e participar do desenvolvimento deste projeto!
