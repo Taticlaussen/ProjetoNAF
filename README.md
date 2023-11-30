@@ -37,9 +37,9 @@ Para o desenvolvimento deste projeto, estamos utilizando as seguintes tecnologia
 ##  Requisitos Funcionais:
 RF 1. Cadastro de Usuários
 
-1.1	Permitir o cadastro de novos estudantes.
-1.2	Permitir o cadastro dos clientes (população).
-1.3	Validar e armazenar informações do usuário no banco de dados.
+- 1.1	Permitir o cadastro de novos estudantes.
+- 1.2	Permitir o cadastro dos clientes (população).
+- 1.3	Validar e armazenar informações do usuário no banco de dados.
 
 RF 2. Autenticação e Autorização:
 
